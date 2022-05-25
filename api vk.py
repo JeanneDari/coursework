@@ -3,6 +3,10 @@ with open('token.txt', 'r') as file_object:
 
 import requests
 from pprint import pprint
+from tqdm import tqdm
+from time import sleep
+for i in tqdm(range(200)):
+    sleep(.01)
 
 class VK:
 
@@ -53,15 +57,15 @@ class YandexDisk:
         params = {'path': disk_path, 'url': file_url}
         upload_url = "https://cloud-api.yandex.net/v1/disk/resources/upload"
         headers = self.get_headers()
-        response = requests.post(url=upload_url, data=params, headers=headers)
+        response = requests.post(url=upload_url, params=params, headers=headers)
         response.raise_for_status()
         if response.status_code == 201:
             print("Success")
 
 if __name__ ==  '__main__':
-    print(VK.get_url_photo_vk('353981485'))
-    print(VK.get_photo_name_vk('353981485'))
+    #print(VK.get_url_photo_vk('353981485'))
+    #print(VK.get_photo_name_vk('353981485'))
 
-    #TOKEN = ''
-    #ya = YandexDisk(token=TOKEN)
-    #ya.upload_url_to_disk(f"/netology/{VK.get_photo_name_vk('353981485')}", VK.get_url_photo_vk('353981485'))
+    TOKEN = 'AQAAAABRgcyMAADLWxaL708RxkVcpIXl_W5cyCw'
+    ya = YandexDisk(token=TOKEN)
+    ya.upload_url_to_disk(f"/netology/{VK.get_photo_name_vk('353981485')}", VK.get_url_photo_vk('353981485'))
