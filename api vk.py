@@ -66,6 +66,6 @@ if __name__ ==  '__main__':
     #print(VK.get_url_photo_vk('353981485'))
     #print(VK.get_photo_name_vk('353981485'))
 
-    TOKEN = 'AQAAAABRgcyMAADLWxaL708RxkVcpIXl_W5cyCw'
+    TOKEN = ''
     ya = YandexDisk(token=TOKEN)
     ya.upload_url_to_disk(f"/netology/{VK.get_photo_name_vk('353981485')}", VK.get_url_photo_vk('353981485'))
